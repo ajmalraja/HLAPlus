@@ -1,0 +1,42 @@
+<app-spinner [visibility]=spinnervisibility ></app-spinner>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 "></div>
+  <div class="col-xs-4 col-sm-4 col-md-4 ">
+    <kendo-upload [autoUpload]="false" [saveUrl]='saveurl'
+    [multiple]="true"
+     (clear)="clearEventHandler($event)"
+     (complete)="completeEventHandler($event)">
+    </kendo-upload>
+    <div class="col-xs-4 col-sm-4 col-md-4 "></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4 col-md-4 "></div>
+  <div class="col-xs-4 col-sm-4 col-md-4 ">
+    <ul class="event-log">
+      <li *ngFor="let event of events">{{ event }}</li>
+    </ul>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4 "></div>
+</div>
+<br/>
+<br/>
+<div *ngFor="let lst of documentlist$ | async">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 "></div>
+    <div class="col-xs-8 col-sm-8 col-md-8 ">
+      <div class="col-xs-12 col-sm-12 col-md-12 ">
+        <div (click)='downloadfile(lst.Id,lst.FileName)' class="col-xs-6 col-sm-6 col-md-6 mousehover ">
+          <span class="k-icon k-i-file" style="font-size:20px;color:#5e9ca9"></span>
+          <font style="font-size:80%;color:#5e9ca9">{{lst.FileName}}</font>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 "></div>
+      </div>
+
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 "></div>
+    <div class=row>
+      <div style="height:2.5vh"></div>
+    </div>
+
+  </div>

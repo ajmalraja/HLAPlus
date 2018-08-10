@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9b5898e1e1c43998f110648a289a19b" Name="Diagram1">
+        <EntityTypeShape EntityType="hlaplusModel.Blacklist" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Challenge" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Cohort" Width="1.5" PointX="8.25" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Country" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Genotype" Width="1.5" PointX="13.5" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Haplotype" Width="1.5" PointX="16" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.HLAAntigenorAllele" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.IdenticaNucleotideSequence" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.IdenticaPolypeptideSequence" Width="1.5" PointX="5.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Internationalisation" Width="1.5" PointX="0.75" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Language" Width="1.5" PointX="5.25" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Licence" Width="1.5" PointX="5.25" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Literal" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Message" Width="1.5" PointX="5.25" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.NMDPMAC" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.nomenclature" Width="1.5" PointX="5.25" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Organisation" Width="1.5" PointX="7.5" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Population" Width="1.5" PointX="10.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Privilege" Width="1.5" PointX="5.25" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Resolution" Width="1.5" PointX="5.25" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Role" Width="1.5" PointX="9.75" PointY="51.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.SerologicalEquivalent" Width="1.5" PointX="5.25" PointY="66.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.SerologicalRelationship" Width="1.5" PointX="5.25" PointY="70.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.Timezone" Width="1.5" PointX="0.75" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hlaplusModel.UserAccount" Width="1.5" PointX="3" PointY="35.25" IsExpanded="true" />
+        <AssociationConnector Association="hlaplusModel.challenge_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.challenge_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.cohort_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.cohort_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.cohort_PopulationId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.genotype_CohortId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.country_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.country_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.organisation_CountryCode_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.genotype_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.genotype_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.haplotype_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.haplotype_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.haplotype_PopulationId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.hlaantigenorallele_CreatedByUserAccountId_fkey1" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.hlaantigenorallele_LastModifiedByUserAccountId_fkey1" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.identicanucleotidesequence_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.identicanucleotidesequence_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.identicapolypeptidesequence_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.identicapolypeptidesequence_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.useraccount_InternationalisationPreferenceInternationalisa_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.language_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.language_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.licence_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.licence_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_DistributionLicenceId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.message_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.message_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.message_UserId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.nomenclature_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.nomenclature_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.organisation_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.organisation_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_CalculatedByOrganisationId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_HostedByOrgansiationId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_OwnerOrganisationId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.role_OrganisationId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.population_ResolutionId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.privilege_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.privilege_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.role_PrivilegeId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.resolution_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.resolution_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.role_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.role_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.role_UserId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.serologicalequivalent_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.serologicalequivalent_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.serologicalrelationship_CreatedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.serologicalrelationship_LastModifiedByUserAccountId_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="hlaplusModel.useraccount_TimezoneId_fkey" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

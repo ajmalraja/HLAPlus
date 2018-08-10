@@ -1,0 +1,163 @@
+<app-spinner [visibility]=spinnervisibility ></app-spinner>
+<form (ngSubmit)="onsubmit()" #populationform="ngForm" >
+
+<div  class="row">
+    <br/>
+  </div>
+<div  class="row">
+    <div class="col-xs-4 col-sm-4  col-md-4">
+      <div class="col-xs-6 col-sm-6  col-md-6">
+         Population Name
+        </div>
+        <div class="col-xs-6 col-sm-6  col-md-6">
+            <kendo-combobox id="populationName"  (valueChange)="valueChange($event)" required [data]="PopulationNamelst" [textField]="'Name'"
+            [valueField]="'Id'" #populationName=ngModel [placeholder]="PopNamePlaceholder" [(ngModel)]=selectedPop name="populationName" style="width:170%">
+            </kendo-combobox>
+          </div>
+    </div>
+    <div class="col-xs-8 col-sm-8  col-md-8">
+
+    </div>
+</div>
+
+<div  class="row">
+    <div class="col-xs-4 col-sm-4  col-md-4">
+        <div class="col-xs-6 col-sm-6  col-md-6">
+        </div>
+          <div class="col-xs-6 col-sm-6  col-md-6">
+              <errors [control]="populationName" [errormsg]="PopulationNameError "></errors>
+            </div>
+      </div>
+    <div class="col-xs-8 col-sm-8  col-md-8">
+    </div>
+  </div>
+<br>
+<div  class="row">
+        <div class="col-xs-4 col-sm-4  col-md-4">
+            <div class="col-xs-6 col-sm-6  col-md-6">
+            Haplotype
+            </div>
+              <div class="col-xs-6 col-sm-6  col-md-6">
+                  <textarea id="Haplotype"  required #Haplotype=ngModel [(ngModel)]=newHaplotype.Haplotype name="Haplotype" style="width:170%"></textarea>
+                </div>
+        </div>
+        <div class="col-xs-8 col-sm-8  col-md-8">
+
+          </div>
+</div>
+
+<div  class="row">
+    <div class="col-xs-4 col-sm-4  col-md-4">
+        <div class="col-xs-6 col-sm-6  col-md-6">
+        </div>
+          <div class="col-xs-6 col-sm-6  col-md-6">
+              <errors [control]="Haplotype" [errormsg]="HaplotypeError"></errors>
+            </div>
+      </div>
+    <div class="col-xs-8 col-sm-8  col-md-8">
+    </div>
+  </div>
+  <br>
+  <div  class="row">
+      <div class="col-xs-4 col-sm-4  col-md-4">
+        <div class="col-xs-6 col-sm-6  col-md-6">
+            Count
+          </div>
+          <div class="col-xs-6 col-sm-6  col-md-6">
+            <kendo-numerictextbox id="count" required  #count=ngModel [(ngModel)]=newHaplotype.Count name="count" style="width:70%">
+              </kendo-numerictextbox>
+            </div>
+      </div>
+      <div class="col-xs-8 col-sm-8  col-md-8">
+
+      </div>
+  </div>
+
+  <div  class="row">
+      <div class="col-xs-4 col-sm-4  col-md-4">
+          <div class="col-xs-6 col-sm-6  col-md-6">
+          </div>
+            <div class="col-xs-6 col-sm-6  col-md-6">
+                <errors [control]="count" [errormsg]="CountError"></errors>
+              </div>
+        </div>
+      <div class="col-xs-8 col-sm-8  col-md-8">
+      </div>
+    </div>
+  <br>
+  <div  class="row">
+      <div class="col-xs-4 col-sm-4  col-md-4">
+        <div class="col-xs-6 col-sm-6  col-md-6">
+            Frequency
+          </div>
+          <div class="col-xs-6 col-sm-6  col-md-6">
+              <kendo-numerictextbox id="Frequency" required  #Frequency=ngModel [(ngModel)]=newHaplotype.Frequency name="Frequency" style="width:70%">
+                </kendo-numerictextbox>
+            </div>
+      </div>
+      <div class="col-xs-8 col-sm-8  col-md-8">
+
+      </div>
+  </div>
+<br/>
+  <div  class="row">
+      <div class="col-xs-4 col-sm-4  col-md-4">
+          <div class="col-xs-6 col-sm-6  col-md-6">
+          </div>
+            <div class="col-xs-6 col-sm-6  col-md-6">
+                <errors [control]="Frequency" [errormsg]="FrequencyError"></errors>
+              </div>
+        </div>
+      <div class="col-xs-8 col-sm-8  col-md-8">
+      </div>
+    </div>
+
+  <div  class="row">
+      <div class="col-xs-4 col-sm-4  col-md-4">
+        <div class="col-xs-6 col-sm-6  col-md-6">
+            Linkage Disequilibrium
+          </div>
+          <div class="col-xs-6 col-sm-6  col-md-6">
+              <kendo-numerictextbox  id="LinkageDisEquilibrium" required  #LinkageDisequ=ngModel [(ngModel)]=newHaplotype.LinkageDisEquilibrium name="LinkageDisequ" style="width:70%">
+              </kendo-numerictextbox>
+
+            </div>
+      </div>
+      <div class="col-xs-8 col-sm-8  col-md-8">
+
+      </div>
+  </div>
+
+  <div  class="row">
+      <div class="col-xs-4 col-sm-4  col-md-4">
+          <div class="col-xs-6 col-sm-6  col-md-6">
+          </div>
+            <div class="col-xs-6 col-sm-6  col-md-6">
+                <errors [control]="LinkageDisequ" [errormsg]="LinkagedisequError"></errors>
+              </div>
+        </div>
+      <div class="col-xs-8 col-sm-8  col-md-8">
+      </div>
+    </div>
+  <br>
+  <div  class="row">
+          <div class="col-xs-6 col-sm-6  col-md-6">
+              <div class="col-xs-5 col-sm-5  col-md-5">
+                </div>
+                <div class="col-xs-7 col-sm-7  col-md-7">
+                    <div class="col-xs-4 col-sm-4  col-md-4">
+                        &nbsp; <button type="submit" class="savebutton" kendoButton [disabled]="populationform.invalid" [icon]="'save'"[look]="'outline'">Save</button>
+                    </div>
+                    <div class="col-xs-4 col-sm-4  col-md-4">
+                        &nbsp; <button type="reset" class="savebutton" kendoButton (click)="backtohome()" [icon]="'cancel'"[look]="'outline'">Cancel</button>
+                    </div>
+                    <div class="col-xs-4 col-sm-4  col-md-4">
+                        &nbsp;<button (click)="callDelete()" *ngIf="EditMode" class="savebutton" kendoButton [disabled]="populationform.invalid" [icon]="'delete'"[look]="'outline'">Delete</button>
+                    </div>
+                </div>
+
+          <div class="col-xs-6 col-sm-6  col-md-6">
+           </div>
+  </div>
+</div>
+</form>

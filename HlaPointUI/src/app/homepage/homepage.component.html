@@ -1,0 +1,257 @@
+
+
+
+<header>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4  col-md-4" style="text-align:start">
+      <img src="../assets/Images/Logo.png" class="homepagelogo" />
+    </div>
+    <div class="col-xs-2 col-sm-2  col-md-2"></div>
+    <div class="col-xs-6 col-sm-6  col-md-6" style="vertical-align:bottom;text-align:start;padding-top:1%">
+      <h4 class="homepageLogoText">ABMDR Information Services</h4>
+    </div>
+  </div>
+</header>
+<nav>
+  <div class="menucontainer" *ngIf=shouldRun>
+
+
+    <div col="row menuitemrow">
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('HomepageChart')">Home</span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow">
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('Message')">Messages</span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow">
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('Haplotype')">Haplotypes</span>
+      </div>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('Attachment')"> Attachment</span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow">
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('Populations')">Populations</span>
+      </div>
+
+    </div>
+
+    <div col="row menuitemrow">
+
+      <div class="col-xs-8 col-sm-8 col-md-8 menuitem " (click)="submenu(i)">
+        <span>Admin</span>
+      </div>
+      <div class="col-xs-4 col-sm-4  col-md-4  menuitem">
+        <span class="k-icon k-i-arrow-chevron-right" *ngIf=!menuchild[i] (click)="submenu(i)"></span>
+        <span class="k-icon k-i-arrow-chevron-down" *ngIf=menuchild[i] (click)="submenu(i)"></span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow" *ngIf=menuchild[i]>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('UserAccounts')">UserAccounts</span>
+      </div>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('UserRoles')">UserRoles</span>
+      </div>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('OrgUnitReps')">Org Unit Reps</span>
+      </div>
+    </div>
+    <div col="row menuitemrow">
+
+      <div class="col-xs-8 col-sm-8 col-md-8 menuitem " (click)="submenu(i+1)">
+        <span>Configuration</span>
+      </div>
+      <div class="col-xs-4 col-sm-4  col-md-4  menuitem">
+        <span class="k-icon k-i-arrow-chevron-right" *ngIf=!menuchild[i+1] (click)="submenu(i+1)"></span>
+        <span class="k-icon k-i-arrow-chevron-down" *ngIf=menuchild[i+1] (click)="submenu(i+1)"></span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow" *ngIf=menuchild[i+1]>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('UserAccounts')">Security Questions</span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow">
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('User')">Audit Logs</span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow">
+
+      <div class="col-xs-8 col-sm-8 col-md-8 menuitem " (click)="submenu(i+2)">
+        <span>System</span>
+      </div>
+      <div class="col-xs-4 col-sm-4  col-md-4  menuitem">
+        <span class="k-icon k-i-arrow-chevron-right" *ngIf=!menuchild[i+2] (click)="submenu(i+2)"></span>
+        <span class="k-icon k-i-arrow-chevron-down" *ngIf=menuchild[i+2] (click)="submenu(i+2)"></span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow" *ngIf=menuchild[i+2]>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('UserAccounts')">Monitoring</span>
+      </div>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('UserAccounts')">Log History</span>
+      </div>
+    </div>
+    <div col="row menuitemrow">
+
+      <div class="col-xs-8 col-sm-8 col-md-8 menuitem " (click)="submenu(i+3)">
+        <span>Tools</span>
+      </div>
+      <div class="col-xs-4 col-sm-4  col-md-4  menuitem">
+        <span class="k-icon k-i-arrow-chevron-right" *ngIf=!menuchild[i+3] (click)="submenu(i+3)"></span>
+        <span class="k-icon k-i-arrow-chevron-down" *ngIf=menuchild[i+3] (click)="submenu(i+3)"></span>
+      </div>
+
+    </div>
+    <div col="row menuitemrow" *ngIf=menuchild[i+3]>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('http://hla.alleles.org/nomenclature/index.html')">NMDP Nomenclature</span>
+      </div>
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('http://www.marrow-donor.org/cgi-bin/DNA/dnatyp.pl')">NMDP Bioinformatics</span>
+      </div>
+    </div>
+    <div col="row menuitemrow">
+      <div class="col-xs-12 col-sm-12  col-md-12 menuitem ">
+        <span (click)="MenuNavigation('Populations')"></span>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-xs-2 col-sm-2  col-md-2 justify-content-end">
+      <span *ngIf=!shouldRun class="k-icon k-i-reorder mousehover" (click)="menuopen()" style="padding-left:15%;font-size:200%;color:#765584;"></span>
+      <span *ngIf=shouldRun class="k-icon k-i-close mousehover" (click)="menuopen()" style="padding-left:15%;font-size:200%;color:#765584;"></span>
+    </div>
+    <div class="col-xs-6 col-sm-6  col-md-6 justify-content-center"></div>
+    <!--
+        <div class="col-xs-8 col-sm-8  col-md-8 justify-content-center"  >
+            <button mat-button (click)="MenuNavigation('Home')">Home</button>
+            <button mat-button (click)="MenuNavigation('Message')">Message</button>
+            <button mat-button (click)="MenuNavigation('Haplotype')">Haplotype</button>
+            <button mat-button [matMenuTriggerFor]="populationsubmenu">Populations<span class="k-icon k-i-arrow-60-down"></span></button>
+            <mat-menu #populationsubmenu="matMenu" [overlapTrigger]="true" >
+                <button mat-menu-item (click)="MenuNavigation('Populations')"  >Populations</button>
+            </mat-menu>
+            <button mat-button [matMenuTriggerFor]="Admin">Admin</button>
+            <mat-menu #Admin="matMenu" [overlapTrigger]="true"  >
+                <button mat-menu-item>OrganisationUnit</button>
+                <button mat-menu-item (click)="MenuNavigation('User')" >User</button>
+            </mat-menu>
+        </div>
+      -->
+    <div class="col-xs-4 col-sm-4  col-md-4">
+      <div class="col-xs-6 col-sm-6  col-md-6"></div>
+      <div class="col-xs-1 col-sm-1  col-md-1">
+        <a href="">
+          <span title='User' class="k-icon k-i-user" style="font-size:20px;color:#5e9ca9"></span>
+        </a>
+      </div>
+      <div title='Mail' class="col-xs-1 col-sm-1  col-md-1 ">
+        <a href="mailto:abmdr.ishelp@abmdr.org.au">
+          <span class="k-icon k-i-email mousehover" style="font-size:20px;color: #5e9ca9"></span>
+        </a>
+      </div>
+      <div title='Print' class="col-xs-1 col-sm-1  col-md-1 ">
+        <span class="k-icon k-i-printer mousehover" style="font-size:20px;color: #5e9ca9" onclick="javascript:window.print();"></span>
+      </div>
+      <div title='help' class="col-xs-1 col-sm-1  col-md-1">
+        <span class="k-icon k-i-help" style="font-size:20px;color: #5e9ca9"></span>
+      </div>
+      <div title='Logout' class="col-xs-2 col-sm-2  col-md-2 justify-content-md-start " (click)="Logout()">
+        <span class="k-icon k-i-logout mousehover" (click)="Logout()" style="font-size:20px;color: #5e9ca9;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding-left:2%;padding-right:2%">
+
+
+    <div class="col-xs-12 col-sm-12  col-md-12 homepageBar ">
+      <img [src]="currentrouteDet.logopath" class="homepagebarlogo" />
+      <span class="bannerText">{{currentrouteDet.description}}</span>
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="container-fluid homepagesection">
+  <div class=row>
+    <div style="height:.5vmax"></div>
+  </div>
+  <div class=row>
+    <div class="col-xs-12 col-sm-12 col-md-12 routlet">
+      <router-outlet (activate)='OnActivate($event)'></router-outlet>
+    </div>
+  </div>
+</div>
+<div class=row>
+  <div style="height:.5vh"></div>
+</div>
+<footer>
+  <div class=row tyle="padding-left:3%;padding-right:3%">
+    <div class="col-xs-12 col-sm-12  col-md-12 spaceholdersmall"></div>
+  </div>
+  <div class="row" style="padding-left:3%;padding-right:3%">
+
+    <div class="col-xs-9 col-sm-9  col-md-9 homepagefooter ">
+
+      <a class="ft-link" href="About" target="_blank" title="About" style="color:#765584">about</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="ft-link" href="Accreditation" target="_blank" title="Accreditation" style="color:#765584">accreditation</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="ft-link" href="http://www.abmdr.org.au/" title="Corporate Website" target="_blank"
+        style="color:#765584">corporate website</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="ft-link" href="Terms" target="_blank" title="Terms" style="color:#765584">terms</a>
+
+    </div>
+    <div class="col-xs-2 col-sm-2  col-md-2 copyrighttext homepagefooter" style="text-align:end"></div>
+    <div class="col-xs-1 col-sm-1  col-md-1 homepagefooter justify-content-end">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; 2018
+    </div>
+  </div>
+</footer>
+-
+
+<kendo-dialog title="Session Timed out" *ngIf=sessiondialogOpened (close)="Logout()">
+  <div class=row>
+    <div class="col-xs-1 col-sm-1 col-md-1"></div>
+    <div class="col-xs-11 col-sm-11 col-md-11">
+      <p>Do you want to stay?</p>
+    </div>
+  </div>
+  <br/>
+  <div class=row>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-xs-3 col-sm-3  col-md-3"></div>
+      <div class="col-xs-6 col-sm-6  col-md-6">
+        <div class="col-xs-6 col-sm-6  col-md-6">
+          <button type="reset" class="sessionbutton" kendoButton (click)="refreshToken()" [icon]="'check'" [look]="'outline'">Ok</button>
+        </div>
+        <div class="col-xs-6 col-sm-6  col-md-6">
+          <button type="reset" class="sessionbutton" kendoButton (click)="Logout()" [icon]="'cancel'" [look]="'outline'">Cancel</button>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-3  col-md-3"></div>
+    </div>
+  </div>
+</kendo-dialog>

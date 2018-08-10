@@ -1,0 +1,245 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.homepagelogo{
+
+    width: 50;
+    height: 3vmax;
+    max-width: 50%;
+    padding-left: 2vmax;
+
+}
+
+.mousehover{
+
+  cursor: pointer;
+}
+
+.homepageLogoText {
+
+  font-size: .75vmax;
+  color: #765584;
+  font-family:Verdana, sans-serif;
+
+}
+
+
+.mat-button {
+  background-color: white;
+  color: #5e9ca9
+}
+
+  .mat-button:hover {
+      background-color: #5e9ca9;
+      color: white;
+
+  }
+
+.mat-menu-item {
+  background-color: #5e9ca9;;
+  color:white;
+
+}
+
+  .mat-menu-item:hover {
+      background-color: #5e9ca9;
+      color: white
+  }
+
+.mat-menu-content {
+  background-color: #5e9ca9;
+  color: white
+}
+
+.mat-menu-content:hover {
+  background-color: #5e9ca9;
+  color: white
+}
+.mat-menu-ripple:hover{
+  background-color: #5e9ca9;
+  color: white
+}
+
+.mat-ripple:hover{
+  background-color: #5e9ca9;
+  color: white
+}
+.mat-menu-content:hover {
+  background-color: #5e9ca9;
+  color: white
+}
+
+.ng-trigger {
+  background-color: #5e9ca9;
+  color: white
+}
+.ng-trigger-fadeInItems {
+  background-color: #5e9ca9;
+  color: white
+}
+
+.md-menu {
+  background-color: #5e9ca9;
+  color: white
+}
+
+.cdk-overlay-container{
+  background-color: #5e9ca9;
+  color: white
+}
+
+.homepageBar
+{
+
+
+  height:3.5vmax;
+  background: #765584;
+  border-style:solid;
+  border-color: #765584;
+
+
+}
+
+
+.homepagebarlogo{
+
+  width: 50;
+  height: 3vmax;
+  max-width: 50%;
+
+
+}
+
+.homepagefooter
+{
+
+
+  height:1.5vh;
+  background:white;
+  border-style:solid;
+  border-color:white;
+  color:#765584;;
+
+}
+
+.homepagesection
+{
+  min-height:75vh;
+  max-height:75vh;
+  max-width: 100vw;
+}
+
+.bannerText{
+font-family:Arial;
+font-size:155%;
+color:white;
+padding-top: .5%;
+font-weight: bolder;
+text-align: start;
+vertical-align: middle;
+padding-left: 1%;
+}
+
+.routlet {
+
+padding-right:2%;
+padding-left:2%
+}
+.mat-button {
+  background-color: white;
+  color: #5e9ca9
+}
+
+  .mat-button:hover {
+      background-color: #5e9ca9;
+      color: white
+  }
+
+.mat-menu-item {
+  background-color: white;
+  color: #5e9ca9;
+}
+
+  .mat-menu-item:hover {
+      background-color: #5e9ca9;
+      color: white
+  }
+
+.mat-menu-content {
+  background-color: #5e9ca9;
+  color: white
+}
+
+.ng-trigger {
+  background-color: #5e9ca9;
+  color: white
+}
+.ng-trigger-fadeInItems {
+  background-color: #5e9ca9;
+  color: white
+}
+
+.md-menu {
+  background-color:#765584;
+  color: white
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.menucontainer{
+  position: fixed;
+    display: block;
+    width: 220px;
+    height:400px;
+    top: 72px ;
+    left: 32px;
+    right: 0;
+    bottom: 0;
+    color:#765584;
+    border-color: white;
+    background-color:white;
+    z-index: 2;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-style: solid;
+    border-width: .1vmax;
+
+}
+.menuitem{
+
+  color: #765584;
+  border-style: solid;
+  background-color:white;
+  border-color: white;
+  height:2vmax;
+  border-width: .1vmax;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  align-content:center;
+  padding-top: .5vmax;
+}
+.menuitem:hover{
+  font-weight:bolder;
+  color:#765584;
+  border-style: solid;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  background-color: white;
+  border-color:white;
+
+}
+@keyframes showmenu {
+  from{width:0vmax;}
+  to{width:10vmax;}
+}
+.sessionbutton{
+  background-color: #5e9ca9;
+  color:white;
+  width:120%;
+  border:#5e9ca9;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+

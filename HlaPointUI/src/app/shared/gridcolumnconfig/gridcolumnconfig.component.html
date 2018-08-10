@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6  col-md-6">
+      Available Columns
+    </div>
+    <div class="col-xs-6 col-sm-6  col-md-6">
+      Selected Columns
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-5 col-sm-5  col-md-5">
+      <select name="availablecol" size="5" [(ngModel)]="selcol" multiple style="width:100%;height:40vh;">
+
+        <option *ngFor="let dataColumn of Availablecolumndet" [ngValue]="dataColumn">{{dataColumn.titlename}}</option>
+      </select>
+    </div>
+    <div class="col-xs-1 col-sm-1  col-md-1">
+      <div class=row>
+        <div style="height:5vmax"></div>
+      </div>
+      <div class=row>
+        <span class="k-icon k-i-arrow-60-right mouseHover" (click)="MoveToSelected()" style="font-size:300%;color: #5e9ca9;float:right;cursor:pointer"></span>
+      </div>
+      <div class=row>
+        <span class="k-icon k-i-arrow-double-60-right mouseHover" (click)="MoveAllToSelected()" style="font-size:300%;color: #5e9ca9;float:right;cursor:pointer"></span>
+      </div>
+
+      <div class=row>
+        <span class="k-icon k-i-arrow-60-left mouseHover" (click)="MoveToAvailable()" style="font-size:300%;color: #5e9ca9;float:right;cursor:pointer"></span>
+      </div>
+      <div class=row>
+        <span class="k-icon k-i-arrow-double-60-left mouseHover" (click)="MoveToAllAvailable()" style="font-size:300%;color: #5e9ca9;float:right;cursor:pointer"></span>
+      </div>
+    </div>
+    <div class="col-xs-5 col-sm-5  col-md-5">
+      <select size="5" [(ngModel)]="remcol" multiple style="width:100%;height:40vh;">
+
+        <option *ngFor="let dataColumn of selectedcolumndet" [ngValue]="dataColumn">{{dataColumn.titlename}}</option>
+      </select>
+    </div>
+    <div class="col-xs-1 col-sm-1  col-md-1">
+      <div class=row>
+        <div style="height:5vmax"></div>
+      </div>
+      <span class="k-icon k-i-arrow-60-up mouseHover" (click)="MoveUp()" style="font-size:400%;color: #5e9ca9;float:right;cursor:pointer"></span>
+
+      <div class=row>
+        <div style="height:5vmax"></div>
+      </div>
+
+      <span class="k-icon k-i-arrow-60-down mouseHover" (click)=" MoveDown()" style="font-size:400%;color: #5e9ca9;float:right;cursor:pointer"></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4  col-md-4"></div>
+    <div class="col-xs-4 col-sm-4  col-md-4">
+      <div class="col-xs-6 col-sm-6  col-md-6">
+        &nbsp;
+        <button type="reset" class="savebutton" kendoButton (click)="applychanges()" [icon]="'save'" [look]="'outline'">Save</button>
+      </div>
+      <div class="col-xs-6 col-sm-6  col-md-6">
+        &nbsp;
+        <button type="reset" class="savebutton" kendoButton (click)="close()" [icon]="'cancel'" [look]="'outline'">Cancel</button>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4  col-md-4"></div>
+  </div>
+</div>

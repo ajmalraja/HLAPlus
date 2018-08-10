@@ -1,0 +1,38 @@
+
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <form (ngSubmit)="onSubmit()" #LoginForm="ngForm"> 
+<div class="w-100 float-left px-4">
+        <span style="font-weight:400;font-size:60px;color:darkturquoise;">HLA</span> <span style="font-weight:400;font-size:40px;color:grey;"><i>plus</i></span>
+        </div>
+        <div class="w-100 float-left mt-2 text-center">
+        <h1>Log In</h1>
+        <span>New to HLAplus?</span> <span style="color:#5DACBB;">Sign Up</span>
+        </div>
+        <div class="w-100 float-left">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-7 col-7 px-0 float-left" style="border-right: 1px solid darkgrey;margin-top: 50px;">
+        <div class="w-100 float-left" style="padding-right: 6%;"><input type="text" required (onkeypress)='clearHistory()' [(ngModel)]=logindet.UserName class="col-xl-6 col-lg-6 col-md-11 col-sm-11 col-11" name="email" placeholder="Email"></div>
+        <div class="w-100 float-left" style="padding-right: 6%;"><input type="password" required [(ngModel)]=logindet.PassWord name="Password" class="col-xl-6 col-lg-6 col-md-11 col-sm-11 col-11" ></div>
+        <div class="w-100 float-left text-right" style="padding-right: 6%;"><span class="col-xl-6 col-lg-6 col-md-11 col-sm-11 col-11 px-0">Forgot Password?</span></div>
+        <div class="w-100 float-left text-center mt-3"><input type="submit" class="btn btn-outline-primary" style="margin-left:5%;" name="loginbtn" [disabled]="LoginForm.invalid"></div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-5 col-5 px-0 float-left" style="margin-top: 100px">
+        <div class="w-100 float-left  mb-4">
+        <i class="fa fa-facebook face ml-4 float-left btn btn-outline-primary" style="border-radius:0;border-color:darkblue;color:darkblue;"><span class=" d-block d-md-none">Facebook</span></i><input type="button" class="btn btn-primary col-xl-6 col-lg-6 col-md-7 d-none d-md-block" style="color:white;border-radius:0;background-color:darkblue;border-color:darkblue;" value="Continue with Facebook">
+        </div>
+        <div class="w-100 float-left ">
+        <i class="fa fa-google float-left ml-4 btn btn-outline-primary" style="border-radius:0;"><span class="d-block d-md-none">&nbsp;&nbsp;Google&nbsp;&nbsp;</span></i><input type="button" class="btn btn-primary col-xl-6 col-lg-6 col-md-7 d-none d-md-block" style="color:white;border-radius:0;" value="Continue with Google">
+        </div>
+        </div>
+        <div class="w-100 float-left mt-5 text-center">
+        By logging in, you agree to our<span style="color:#5DACBB;"> Terms of use and condition </span><br/>
+        receive HLA Plus<br/>
+        read our <span style="color:#5DACBB;">Privacy Policy </span>
+        </div>
+        </div>
+        </form>

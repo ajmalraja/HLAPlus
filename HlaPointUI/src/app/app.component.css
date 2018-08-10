@@ -1,0 +1,12 @@
+
+input[type=text],[type=password] {
+    
+  padding: 8px 5px;
+  margin: 15px 0;
+  display: inline-block;
+  float: right;
+  border: 0px;
+  border-bottom: 1px solid navy;
+  box-sizing: border-box;
+}
+.face:hover{background:darkblue;color:white!important;}

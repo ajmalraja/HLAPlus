@@ -1,0 +1,27 @@
+
+.mousehover{
+
+  cursor: pointer;
+}
+.pagingformat{
+
+  background-color: white;
+  color:black;
+
+
+}
+.pagingformat ::selection {
+
+  background-color: white;
+  color:black;
+
+
+}
+.filterplace
+{
+  max-height:4vh;
+  min-height:2vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-left:2%
+}

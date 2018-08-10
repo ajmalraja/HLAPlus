@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="../../../assets/all.css" />
+
+<app-spinner [visibility]=spinnervisibility></app-spinner>
+
+<div>
+
+    <app-advancesearch *ngIf="AdvanceQueryWindow" [gridcolumn]="intialgridstate" [AutoPopulate$]="populationdet$" [QueryList$]="querylst$"
+        (submitquery)="submitquery($event)" (closewindow)="closeAdvancesearch($event)" (queryname)="savequery($event)"></app-advancesearch>
+
+    <div class="row" *ngIf="!AdvanceQueryWindow">
+        <div class="col-xs-4 col-sm-4  col-md-4 ">
+            <input type="text" [(ngModel)]="commonfilter" placeholder="Search Population(s)" (input)="gridFilter($event.target.value)"
+                style="width:100%" *ngIf="showcommonfilter && !resetflag" />
+        </div>
+        <div class="col-xs-8 col-sm-8  col-md-8">
+            <div class="col-xs-6 col-sm-6  col-md-9">
+                <div class="col-xs-6 col-sm-6  col-md-6">
+                    <span style="cursor:pointer;font-size:medium;font-weight:bold;color:#5e9ca9" (click)="AdvanceQueryWindowOpen()" *ngIf="showadvancefilter">Advanced Search</span>
+                </div>
+                <div class="col-xs-6 col-sm-6  col-md-6">
+                    <span style="cursor:pointer;font-size:medium;font-weight:bold;color:#5e9ca9" *ngIf="resetflag">Filter Applied {{filterdet}}</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6  col-md-3">
+
+                <div title='Reset' class="col-xs-2 col-sm-2  col-md-2">
+                    <span class="k-icon k-i-reset mousehover" style="font-size:150%;color: #5e9ca9" (click)="gridreset()" *ngIf="resetflag"></span>
+                </div>
+                <div title='Addnew' class="col-xs-2 col-sm-2  col-md-2">
+                    <span class="k-icon k-i-file-add mousehover" style="font-size:150%;color: #5e9ca9" (click)="Addnew()"></span>
+                </div>
+                <div title='Column Configuration' class="col-xs-2 col-sm-2  col-md-2">
+                    <span class="k-icon k-i-file-config mousehover" style="font-size:150%;color: #5e9ca9" (click)=GridColumnSetting()></span>
+                </div>
+                <div title='Export to Excel' class="col-xs-2 col-sm-2  col-md-2">
+                    <span class="k-icon k-i-excel mouseHover" (click)="excelexport.save()" style="font-size:150%;color:#5e9ca9;;cursor:pointer"></span>
+                </div>
+                <div title='Export to Pdf' class="col-xs-2 col-sm-2  col-md-2">
+                    <span class="k-icon k-i-pdf mouseHover" (click)="pdf.saveAs('Population.pdf')" style="font-size:150%;color: #5e9ca9;cursor:pointer"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=row>
+        <div class="col-xs-12 col-sm-12  col-md-12 "></div>
+    </div>
+    <div class=row>
+        <div style="height:.5vmax"></div>
+    </div>
+    <div class=row>
+        <kendo-excelexport [data]="Exceldata" fileName="Population.xlsx" #excelexport>
+            <kendo-excelexport-column field="Id" title="ID" [hidden]=true>
+            </kendo-excelexport-column>
+            <kendo-excelexport-column-group *ngFor="let col of configuredgridstate">
+                <kendo-excelexport-column field={{col.fieldname}} title={{col.titlename}} width={{col.width}} [hidden]="col.hiddenstate">
+                    <div *ngIf="col.datefiled">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            {{dataItem.CreatedDateTime | date:'dd-MM-yyyy HH:mm'}}
+                        </ng-template>
+                    </div>
+                </kendo-excelexport-column>
+            </kendo-excelexport-column-group>
+        </kendo-excelexport>
+
+
+
+
+    </div>
+    <div class=row style="padding-left:2%">
+        <span style="font-weight: bold;font-family: Arial, Helvetica, sans-serif">Column Filter Summary:</span>
+    </div>
+    <div  class="filterplace">
+
+        <div [class]="colwidth" *ngFor="let item of GridFilterconditon">
+                {{item.field}}:{{item.operator}}:{{item.value}}
+           <!-- <div class="col-xs-4 col-sm-4  col-md-4 ">{{item.field}}:</div>
+            <div class="col-xs-4 col-sm-4  col-md-4 ">{{item.operator}}</div>
+            <div class="col-xs-4 col-sm-4  col-md-4 ">{{item.value}} AND</div> [class]="colwidth"-->
+
+        </div>
+    </div>
+    <div class=row>
+
+        <div class="col-xs-12 col-sm-12  col-md-12 ">
+            <kendo-pdf-export #pdf margin="2cm">
+                <kendo-grid (cellClick)="editClick($event)" [data]="gridData" [reorderable]="true" [height]="gridheight" [pageSize]="state.take"
+                    [skip]="state.skip" [sort]="state.sort" [filter]="state.filter" [sortable]="{'mode':'multiple'}" [pageable]="true"
+                    [filterable]="true" [resizable]="true" [selectable]="{ checkboxOnly: false, mode: 'single' }" (columnResize)="columnresize($event)"
+                    (dataStateChange)="dataStateChange($event)" (filterChange)="applyexistingfilter($event)">
+
+                    <kendo-grid-column-group *ngFor="let col of configuredgridstate">
+                        <kendo-grid-column (onclick)="columnresize($event)" field={{col.fieldname}} title={{col.titlename}} width={{col.width}} filter="{{col.filterType}}"
+                            format="{0:d-MM-y}" [hidden]="col.hiddenstate">
+                            <div *ngIf="col.datefiled">
+                                <ng-template kendoGridCellTemplate let-dataItem>
+                                    {{dataItem.CreatedDateTime | date:'dd-MM-yyyy HH:mm'}}
+                                </ng-template>
+                            </div>
+                        </kendo-grid-column>
+                    </kendo-grid-column-group>
+                    <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+                        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                        <kendo-pager-numeric-buttons class="pagingformat" [buttonCount]="10"></kendo-pager-numeric-buttons>
+                        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                        <kendo-pager-input></kendo-pager-input>
+                        <kendo-pager-page-sizes [pageSizes]="pagesize"></kendo-pager-page-sizes>
+                    </ng-template>
+
+                </kendo-grid>
+            </kendo-pdf-export>
+
+
+
+        </div>
+    </div>
+
+
+
+    <kendo-dialog title="Select column" *ngIf="dialogOpened" (close)="closeDialog('dialog')" [minWidth]="600" [width]="600" [height]=600>
+        <app-gridcolumnconfig [gridcolumndet]="intialgridstate" [selgridcolumndet]="configuredgridstate" [gridcolumnchanged]="gridcolumnchanged"
+            (gridSettingChange)="setgridcolumn($event)" (closevent)="settingclose($event)"></app-gridcolumnconfig>
+    </kendo-dialog>

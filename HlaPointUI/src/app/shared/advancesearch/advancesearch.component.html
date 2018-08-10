@@ -1,0 +1,155 @@
+<div class="advsearch"  >
+<div class="row"  >
+
+<div class="col-xs-8 col-sm-8 col-md-8"></div>
+<div class="col-xs-4 col-sm-4 col-md-4" >
+    <div class="col-xs-9 col-sm-9 col-md-9"></div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <span class="k-icon k-i-select-box mousehover" (click)="showsavedquery()" style="font-size:150%;color: #5e9ca9"></span>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <span class="k-icon k-i-save mousehover" (click)="querysavewithoutclose()" style="font-size:150%;color: #5e9ca9"></span>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <span  class="k-icon k-i-close-outline mousehover" (click)="close()" style="font-size:150%;color: #5e9ca9"></span>
+    </div>
+
+</div>
+</div>
+
+<br/>
+
+<div class=row  >
+
+    <div class="col-xs-1 col-sm-1 col-md-1 ">
+        <div class="col-xs-5 col-sm-5 col-md-5 justify-content-start">Add</div>
+        <div class="col-xs-7 col-sm-7 col-md-7">Delete</div>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 justify-content-md-start">And/Or</div>
+    <div class="col-xs-1 col-sm-1 col-md-2 justify-content-md-start">Attribute</div>
+    <div class="col-xs-1 col-sm-1 col-md-2 justify-content-md-start">Operator</div>
+    <div class="col-xs-4 col-sm-4 col-md-2 justify-content-md-start">value</div>
+    <div class="col-xs-4 col-sm-4 col-md-3"></div>
+</div>
+<br/>
+ <div class=row >
+    <form [formGroup]="AdvanceSearchForm" novalidate (ngSubmit)="querysubmit()" >
+
+        <div formArrayName="Criteria">
+            <div *ngFor="let criterion of AdvanceSearchForm.controls.Criteria.controls; let i=index" >
+
+                    <div class=row [formGroupName]="i">
+                        <div class="col-xs-1 col-sm-1 col-md-1">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <span (click)="addCriteria()"class="k-icon k-i-plus mouseHover"  style="font-size:150%;color: #5e9ca9;cursor:pointer;padding-left:30%"></span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <span (click)="RemoveCriteria(i)"class="k-icon k-i-delete mouseHover"  style="font-size:150%;color: #5e9ca9;cursor:pointer;padding-left:20%"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1">
+                            <kendo-dropdownlist style="width:60%" formControlName="relOperator" [data]="Reloperator" *ngIf="i>0"></kendo-dropdownlist>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2"> <kendo-dropdownlist formControlName="field" [data]="AvaliableFields"></kendo-dropdownlist></div>
+                        <div class="col-xs-2 col-sm-2 col-md-2"> <kendo-dropdownlist formControlName="operator"  (focus)="loadoperationlist(i)" [data]="OperatorList[i]"></kendo-dropdownlist></div>
+                        <div class="col-xs-4 col-sm-4 col-md-4"><kendo-autocomplete style="width:100%" formControlName="value" (focus)="Autocomplete(i)" [data]="AutoCompleteList[i]" *ngIf="coltypevalue[i]!='date'"></kendo-autocomplete>
+                        <kendo-datepicker [(ngModel)]="datevalue[i]"formControlName="value" *ngIf="coltypevalue[i]=='date'"  ></kendo-datepicker>
+                        </div>
+                        <input type="hidden" [(ngModel)]="dbcolname[i]" formControlName="columnName">
+                        <input type="hidden" [(ngModel)]="coltypevalue[i]" formControlName="columnType">
+                        <input type="hidden" [(ngModel)]="childcolname[i]" formControlName="childcolname">
+                        <input type="hidden" [(ngModel)]="childcoltype[i]" formControlName="childcoltype">
+                        <input type="hidden" [(ngModel)]="tableName[i]" formControlName="tableName">
+                        <input type="hidden" [(ngModel)]="gridname[i]" formControlName="gridName">
+                        <div class="col-xs-4 col-sm-4 col-md-4"></div>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+
+                    <button type="submit" class="savebutton" kendoButton [disabled]="AdvanceSearchForm.invalid" [icon]="'search'"[look]="'outline'">Search</button>
+                </div>
+            </div>
+
+</form>
+</div>
+<kendo-dialog title="Save the Query" *ngIf="savedialogOpened" (close)="closeDialog('dialog')" [minWidth]="150" [width]="550" [height]=250>
+  <div *ngIf="!savedqueryvisibility">
+  <div class="row">
+        <div class="col-xs-2 col-sm-2  col-md-2"></div>
+        <div class="col-xs-8 col-sm-8  col-md-8">
+          <p>Do you want the save the Query ?</p>
+        </div>
+        <div class="col-xs-2 col-sm-2  col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12  col-md-12">
+          <div class="col-xs-6 col-sm-6  col-md-6">
+            Query Description
+          </div>
+          <div class="col-xs-6 col-sm-6  col-md-6">
+            <input type=text (keydown)="querydescriptionvalidation($event)" (keypress)="querydescriptionvalidation($event)" [(ngModel)]="queryDescription">
+          </div>
+      </div>
+    </div>
+<br/>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12  col-md-12">
+          <div class="col-xs-4 col-sm-4  col-md-4"></div>
+            <div class="col-xs-2 col-sm-2  col-md-2">
+              &nbsp; <button type="reset" class="savebutton" kendoButton (click)="closeDialog()" [icon]="'undo'"[look]="'outline'">No</button>
+            </div>
+            <div class="col-xs-2 col-sm-2  col-md-2">
+              &nbsp; <button type="submit" class="savebutton" [disabled]="queryDescCheck" kendoButton (click)="querysaveclose()" [icon]="'save'"[look]="'outline'">Yes</button>
+            </div>
+            <div class="col-xs-4 col-sm-4  col-md-4"></div>
+          </div>
+    </div>
+</div>
+<div *ngIf="savedqueryvisibility">
+
+    <div class="row">
+        <div class="col-xs-2 col-sm-2  col-md-2"></div>
+        <div class="col-xs-8 col-sm-8  col-md-8">
+          <p>Please select the  Query Description</p>
+        </div>
+        <div class="col-xs-2 col-sm-2  col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12  col-md-12">
+
+          <div class="col-xs-12 col-sm-12  col-md-12">
+              <kendo-combobox id="querylist"  [data]="savedqrydet" [textField]="'Description'"
+            [valueField]="'QueryObject'"   [(ngModel)]="selectedqry" name="selectedqry" style="width:100%">
+            </kendo-combobox>
+          </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="queryDescCheck">
+        <div class="col-xs-6 col-sm-6  col-md-6" ></div>
+        <div class="col-xs-6 col-sm-6  col-md-6" >
+            <span style="color:red">Query Descrption is Required..</span>
+        </div>
+      </div>
+      <br/>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12  col-md-12">
+          <div class="col-xs-4 col-sm-4  col-md-4"></div>
+            <div class="col-xs-4 col-sm-4  col-md-4">
+                <button type="submit" class="savebutton" kendoButton (click)="showselectedquery()" [icon]="'check-outline'"[look]="'outline'">Show</button>
+            </div>
+            <div class="col-xs-4 col-sm-4  col-md-4"></div>
+          </div>
+    </div>
+
+</div>
+</kendo-dialog>
+
+
+
+</div>
